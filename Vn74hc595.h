@@ -75,7 +75,6 @@ public:
 
 #endif //VN_PORT_DEFINED
 	void shiftOutData(uint8_t dataOut);
-	void screenUpdate(uint8_t led);
 	void screenClear(void);
 	void displayImage(unsigned int image[], int duration);
 	void scrollImage(unsigned int image[], uint8_t duration, uint8_t dir_shift);

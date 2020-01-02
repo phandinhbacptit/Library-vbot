@@ -13,12 +13,13 @@
 #include "VnLightSensor.h"
 #include "VnServo.h"
 #include "VnBle.h"
-//#include "VnColorSensor.h"
+// #include "VnColorSensor.h"
 #include "VnIrRemote.h"
 #include "VnButton.h"
 #include "VnRGB.h"
 #include "Vn74hc595.h"
 #include "VnLedMatrixDefine.h"
+#include "VnMpu6050.h"
 
 /*Define for DC motor*/
 #define LEFT            1
@@ -146,7 +147,7 @@ VnPort_Sig vnPort[17] =
 {
   { NC, NC }, { 17, 16 }, { NC, NC }, { NC, NC }, {  2,  12 },
   { 38, A0 }, { NC, NC }, { NC, 23 }, { NC, 32 }, {  NC,  25 },
-  { NC, 39 }, { 12, 2 }, { NC, NC }, { NC, NC }, { NC, NC },
+  { NC, 39 }, { 12, 2 }, { 21, 22 }, { NC, NC }, { NC, NC },
   { NC, NC },{ NC, NC },
 };
 

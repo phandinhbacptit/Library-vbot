@@ -92,7 +92,7 @@ extern VnMotor				vnMotor[4];
 #define IR_REMOTE           (0x09)
 #define BUTTON              (0x0a)
 #define MAXTRIX             (0x0b) // s1: SER - s2: CLK 
-#define PORT_12             (0x0c)
+#define MPU6050             (0x0c)
 #define PORT_13             (0x0d)
 #define PORT_14             (0x0e)
 #define PORT_15             (0x0f)

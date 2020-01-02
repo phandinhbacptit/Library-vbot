@@ -26,11 +26,12 @@
  *
  * @ Method List:
  *
- *    1. void Vn74hc595::setpin(int pin);
- *	  2. void Vn74hc595::tone(int pin, uint16_t frequency, uint32_t duration);
- *	  3. void Vn74hc595::tone(uint16_t frequency, uint32_t duration)
- *	  4. void Vn74hc595::noTone(int pin);
- *	  5. void Vn74hc595::noTone();
+ *    1. Vn74hc595::Vn74hc595(void);
+ *	  2. Vn74hc595::Vn74hc595(uint8_t port):VnPort(port);
+ *	  3. Vn74hc595::Vn74hc595(uint8_t ser_pin, uint8_t clk_pin, uint8_t latch_pin);
+ *	  4. void Vn74hc595::screenClear(void);
+ *	  5. void Vn74hc595::displayImage(unsigned int image[], int duration);
+ *	  6. void Vn74hc595:: scrollImage(unsigned int image[], uint8_t duration, uint8_t dir_shift);
  *
  * @ History:
  * <pre>
@@ -113,26 +114,6 @@ Vn74hc595::Vn74hc595(uint8_t ser_pin, uint8_t clk_pin, uint8_t latch_pin)
 	// Serial.print(_latchPin);
 }
 #endif // VN_PORT_DEFINED
-
-
-/**
- * @Brief :  This function will display image in the screen
- * @Param :  dataOut - data want to shift out 74hc595
- * @Retval : None.
- */
-void Vn74hc595::screenUpdate(uint8_t led)
-{  
-	uint8_t row = 0x80;
-	byte k = 0;
-	
-	for (k = 0; k < 9; k++) {
-		digitalWrite(_latchPin, LOW);		// open latch ready to receive data
-		shiftOutData(~led); 				// shift out the LED array (inverted)
-		shiftOutData(row); 					// shift out row binary number
-		digitalWrite (_latchPin, HIGH); 	// Close the latch, sending the data in the registers out to the matrix
-		row = row << 1;						// bitshift left
-	}
-}
 
 /**
  * @Brief :  Clear display image in the screen
